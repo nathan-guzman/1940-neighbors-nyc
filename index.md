@@ -1,7 +1,7 @@
 # Mapping Household Level Data for Blocks in NYC, 1940 Census
 
 ### Enumeration Districts 24-1101 and 24-1077
-#### Bay Ridge neighborhood, Brooklyn, NY - [Link to Full View](ED 24-1101 & ED 24-1077/map.html)
+#### Bay Ridge, Brooklyn, NY - [Link to Full View](ED 24-1101 & ED 24-1077/map.html)
 
 <iframe
   src="ED 24-1101 & ED 24-1077/map.html" height="700" width="100%"
@@ -10,7 +10,7 @@
 
 
 ### Enumeration District 24-1369
-#### Park Slope neighborhood, Brooklyn, NY - [Link to Full View](ED 24-1369/map.html)
+#### Park Slope, Brooklyn, NY - [Link to Full View](ED 24-1369/map.html)
 
 
 <iframe
