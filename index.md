@@ -1,4 +1,4 @@
-# Mapping Household Level Data, 1940 Census
+# Mapping Household Level Data for Blocks in NYC, 1940 Census
 
 ### Enumeration Districts 24-1101 and 24-1077
 #### Bay Ridge neighborhood, Brooklyn, NY - [Link to Full View](ED 24-1101 & ED 24-1077/map.html)
