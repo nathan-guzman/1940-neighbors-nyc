@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/StuyvesantSquareStreets_0.js"></script>
+        <script src="data/NoDataFound_1.js"></script>
+        <script src="data/DataFound_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[40.72988072274615,-73.99142001045627],[40.73800057928138,-73.97346520792894]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_StuyvesantSquareStreets_0(feature, layer) {
+        var popupContent = '<table>';
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['bike_lane'] !== null ? autolinker.link(feature.properties['bike_lane'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['bike_trafd'] !== null ? autolinker.link(feature.properties['bike_trafd'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['borocode'] !== null ? autolinker.link(feature.properties['borocode'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['date_creat'] !== null ? autolinker.link(feature.properties['date_creat'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['time_creat'] !== null ? autolinker.link(feature.properties['time_creat'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['frm_lvl_co'] !== null ? autolinker.link(feature.properties['frm_lvl_co'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['full_stree'] !== null ? autolinker.link(feature.properties['full_stree'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['l_blkfc_id'] !== null ? autolinker.link(feature.properties['l_blkfc_id'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['l_high_hn'] !== null ? autolinker.link(feature.properties['l_high_hn'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['l_low_hn'] !== null ? autolinker.link(feature.properties['l_low_hn'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['l_zip'] !== null ? autolinker.link(feature.properties['l_zip'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['date_modif'] !== null ? autolinker.link(feature.properties['date_modif'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['time_modif'] !== null ? autolinker.link(feature.properties['time_modif'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['physicalid'] !== null ? autolinker.link(feature.properties['physicalid'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['post_direc'] !== null ? autolinker.link(feature.properties['post_direc'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['post_modif'] !== null ? autolinker.link(feature.properties['post_modif'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['post_type'] !== null ? autolinker.link(feature.properties['post_type'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['pre_direct'] !== null ? autolinker.link(feature.properties['pre_direct'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['pre_modifi'] !== null ? autolinker.link(feature.properties['pre_modifi'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['pre_type'] !== null ? autolinker.link(feature.properties['pre_type'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['r_blkfc_id'] !== null ? autolinker.link(feature.properties['r_blkfc_id'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['r_high_hn'] !== null ? autolinker.link(feature.properties['r_high_hn'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['r_low_hn'] !== null ? autolinker.link(feature.properties['r_low_hn'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['r_zip'] !== null ? autolinker.link(feature.properties['r_zip'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['rw_type'] !== null ? autolinker.link(feature.properties['rw_type'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['segment_ty'] !== null ? autolinker.link(feature.properties['segment_ty'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['shape_leng'] !== null ? autolinker.link(feature.properties['shape_leng'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['snow_pri'] !== null ? autolinker.link(feature.properties['snow_pri'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['st_label'] !== null ? autolinker.link(feature.properties['st_label'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['st_name'] !== null ? autolinker.link(feature.properties['st_name'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['st_width'] !== null ? autolinker.link(feature.properties['st_width'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['status'] !== null ? autolinker.link(feature.properties['status'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['to_lvl_co'] !== null ? autolinker.link(feature.properties['to_lvl_co'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['trafdir'] !== null ? autolinker.link(feature.properties['trafdir'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+            popupContent += '</table>';;
+        layer.bindPopup(popupContent, {maxHeight: 400});
+        var popup = layer.getPopup();
+        var content = popup.getContent();
+        var updatedContent = removeEmptyRowsFromPopupContent(content);
+        popup.setContent(updatedContent);
+        }
+
+        function removeEmptyRowsFromPopupContent(content) {
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+
+            var rows = tempDiv.querySelectorAll('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var td = rows[i].querySelector('td');
+
+                if (td && td.innerHTML.trim() === '') {
+                    rows[i].parentNode.removeChild(rows[i]);
+                }
+            }
+
+        return tempDiv.innerHTML;
+        }
+
+        function style_StuyvesantSquareStreets_0_0() {
+            return {
+                pane: 'pane_StuyvesantSquareStreets_0',
+                opacity: 1,
+                color: 'rgba(114,155,111,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_StuyvesantSquareStreets_0');
+        map.getPane('pane_StuyvesantSquareStreets_0').style.zIndex = 400;
+        map.getPane('pane_StuyvesantSquareStreets_0').style['mix-blend-mode'] = 'normal';
+        var layer_StuyvesantSquareStreets_0 = new L.geoJson(json_StuyvesantSquareStreets_0, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_StuyvesantSquareStreets_0',
+            layerName: 'layer_StuyvesantSquareStreets_0',
+            pane: 'pane_StuyvesantSquareStreets_0',
+            onEachFeature: pop_StuyvesantSquareStreets_0,
+            style: style_StuyvesantSquareStreets_0_0,
+        });
+        bounds_group.addLayer(layer_StuyvesantSquareStreets_0);
+        map.addLayer(layer_StuyvesantSquareStreets_0);
+        function pop_NoDataFound_1(feature, layer) {
+        var popupContent = '<table>';
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['Year Constructed'] !== null ? autolinker.link(feature.properties['Year Constructed'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                    popupContent += '<tr>\
+                        <td colspan="2">' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+            popupContent += '</table>';;
+        layer.bindPopup(popupContent, {maxHeight: 400});
+        var popup = layer.getPopup();
+        var content = popup.getContent();
+        var updatedContent = removeEmptyRowsFromPopupContent(content);
+        popup.setContent(updatedContent);
+        }
+
+        function removeEmptyRowsFromPopupContent(content) {
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+
+            var rows = tempDiv.querySelectorAll('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var td = rows[i].querySelector('td');
+
+                if (td && td.innerHTML.trim() === '') {
+                    rows[i].parentNode.removeChild(rows[i]);
+                }
+            }
+
+        return tempDiv.innerHTML;
+        }
+
+        function style_NoDataFound_1_0() {
+            return {
+                pane: 'pane_NoDataFound_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,190,190,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_NoDataFound_1');
+        map.getPane('pane_NoDataFound_1').style.zIndex = 401;
+        map.getPane('pane_NoDataFound_1').style['mix-blend-mode'] = 'normal';
+        var layer_NoDataFound_1 = new L.geoJson(json_NoDataFound_1, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_NoDataFound_1',
+            layerName: 'layer_NoDataFound_1',
+            pane: 'pane_NoDataFound_1',
+            onEachFeature: pop_NoDataFound_1,
+            style: style_NoDataFound_1_0,
+        });
+        bounds_group.addLayer(layer_NoDataFound_1);
+        map.addLayer(layer_NoDataFound_1);
+        function pop_DataFound_2(feature, layer) {
+        var popupContent = '<table>';
+            if (feature.properties['Address']!== null && (feature.properties['Address'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Address</strong><br />' + (feature.properties['Address'] !== null ? autolinker.link(feature.properties['Address'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Year Constructed']!== null && (feature.properties['Year Constructed'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Year Constructed</strong><br />' + (feature.properties['Year Constructed'] !== null ? autolinker.link(feature.properties['Year Constructed'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 1']!== null && (feature.properties['Family 1'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 1</strong><br />' + (feature.properties['Family 1'] !== null ? autolinker.link(feature.properties['Family 1'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 2']!== null && (feature.properties['Family 2'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 2</strong><br />' + (feature.properties['Family 2'] !== null ? autolinker.link(feature.properties['Family 2'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 3']!== null && (feature.properties['Family 3'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 3</strong><br />' + (feature.properties['Family 3'] !== null ? autolinker.link(feature.properties['Family 3'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 4']!== null && (feature.properties['Family 4'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 4</strong><br />' + (feature.properties['Family 4'] !== null ? autolinker.link(feature.properties['Family 4'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 5']!== null && (feature.properties['Family 5'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 5</strong><br />' + (feature.properties['Family 5'] !== null ? autolinker.link(feature.properties['Family 5'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 6']!== null && (feature.properties['Family 6'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 6</strong><br />' + (feature.properties['Family 6'] !== null ? autolinker.link(feature.properties['Family 6'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 7']!== null && (feature.properties['Family 7'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 7</strong><br />' + (feature.properties['Family 7'] !== null ? autolinker.link(feature.properties['Family 7'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 8']!== null && (feature.properties['Family 8'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 8</strong><br />' + (feature.properties['Family 8'] !== null ? autolinker.link(feature.properties['Family 8'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 9']!== null && (feature.properties['Family 9'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 9</strong><br />' + (feature.properties['Family 9'] !== null ? autolinker.link(feature.properties['Family 9'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 10']!== null && (feature.properties['Family 10'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 10</strong><br />' + (feature.properties['Family 10'] !== null ? autolinker.link(feature.properties['Family 10'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 11']!== null && (feature.properties['Family 11'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 11</strong><br />' + (feature.properties['Family 11'] !== null ? autolinker.link(feature.properties['Family 11'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 12']!== null && (feature.properties['Family 12'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 12</strong><br />' + (feature.properties['Family 12'] !== null ? autolinker.link(feature.properties['Family 12'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 13']!== null && (feature.properties['Family 13'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 13</strong><br />' + (feature.properties['Family 13'] !== null ? autolinker.link(feature.properties['Family 13'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 14']!== null && (feature.properties['Family 14'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 14</strong><br />' + (feature.properties['Family 14'] !== null ? autolinker.link(feature.properties['Family 14'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 15']!== null && (feature.properties['Family 15'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 15</strong><br />' + (feature.properties['Family 15'] !== null ? autolinker.link(feature.properties['Family 15'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 16']!== null && (feature.properties['Family 16'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 16</strong><br />' + (feature.properties['Family 16'] !== null ? autolinker.link(feature.properties['Family 16'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 17']!== null && (feature.properties['Family 17'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 17</strong><br />' + (feature.properties['Family 17'] !== null ? autolinker.link(feature.properties['Family 17'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 18']!== null && (feature.properties['Family 18'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 18</strong><br />' + (feature.properties['Family 18'] !== null ? autolinker.link(feature.properties['Family 18'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 19']!== null && (feature.properties['Family 19'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 19</strong><br />' + (feature.properties['Family 19'] !== null ? autolinker.link(feature.properties['Family 19'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 20']!== null && (feature.properties['Family 20'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 20</strong><br />' + (feature.properties['Family 20'] !== null ? autolinker.link(feature.properties['Family 20'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 21']!== null && (feature.properties['Family 21'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 21</strong><br />' + (feature.properties['Family 21'] !== null ? autolinker.link(feature.properties['Family 21'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 22']!== null && (feature.properties['Family 22'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 22</strong><br />' + (feature.properties['Family 22'] !== null ? autolinker.link(feature.properties['Family 22'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 23']!== null && (feature.properties['Family 23'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 23</strong><br />' + (feature.properties['Family 23'] !== null ? autolinker.link(feature.properties['Family 23'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 24']!== null && (feature.properties['Family 24'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 24</strong><br />' + (feature.properties['Family 24'] !== null ? autolinker.link(feature.properties['Family 24'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 25']!== null && (feature.properties['Family 25'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 25</strong><br />' + (feature.properties['Family 25'] !== null ? autolinker.link(feature.properties['Family 25'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 26']!== null && (feature.properties['Family 26'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 26</strong><br />' + (feature.properties['Family 26'] !== null ? autolinker.link(feature.properties['Family 26'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 27']!== null && (feature.properties['Family 27'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 27</strong><br />' + (feature.properties['Family 27'] !== null ? autolinker.link(feature.properties['Family 27'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 28']!== null && (feature.properties['Family 28'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 28</strong><br />' + (feature.properties['Family 28'] !== null ? autolinker.link(feature.properties['Family 28'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 29']!== null && (feature.properties['Family 29'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 29</strong><br />' + (feature.properties['Family 29'] !== null ? autolinker.link(feature.properties['Family 29'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 30']!== null && (feature.properties['Family 30'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 30</strong><br />' + (feature.properties['Family 30'] !== null ? autolinker.link(feature.properties['Family 30'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 31']!== null && (feature.properties['Family 31'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 31</strong><br />' + (feature.properties['Family 31'] !== null ? autolinker.link(feature.properties['Family 31'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 32']!== null && (feature.properties['Family 32'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 32</strong><br />' + (feature.properties['Family 32'] !== null ? autolinker.link(feature.properties['Family 32'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 33']!== null && (feature.properties['Family 33'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 33</strong><br />' + (feature.properties['Family 33'] !== null ? autolinker.link(feature.properties['Family 33'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 34']!== null && (feature.properties['Family 34'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 34</strong><br />' + (feature.properties['Family 34'] !== null ? autolinker.link(feature.properties['Family 34'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 35']!== null && (feature.properties['Family 35'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 35</strong><br />' + (feature.properties['Family 35'] !== null ? autolinker.link(feature.properties['Family 35'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 36']!== null && (feature.properties['Family 36'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 36</strong><br />' + (feature.properties['Family 36'] !== null ? autolinker.link(feature.properties['Family 36'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 37']!== null && (feature.properties['Family 37'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 37</strong><br />' + (feature.properties['Family 37'] !== null ? autolinker.link(feature.properties['Family 37'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 38']!== null && (feature.properties['Family 38'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 38</strong><br />' + (feature.properties['Family 38'] !== null ? autolinker.link(feature.properties['Family 38'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 39']!== null && (feature.properties['Family 39'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 39</strong><br />' + (feature.properties['Family 39'] !== null ? autolinker.link(feature.properties['Family 39'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 40']!== null && (feature.properties['Family 40'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 40</strong><br />' + (feature.properties['Family 40'] !== null ? autolinker.link(feature.properties['Family 40'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 41']!== null && (feature.properties['Family 41'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 41</strong><br />' + (feature.properties['Family 41'] !== null ? autolinker.link(feature.properties['Family 41'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 42']!== null && (feature.properties['Family 42'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 42</strong><br />' + (feature.properties['Family 42'] !== null ? autolinker.link(feature.properties['Family 42'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 43']!== null && (feature.properties['Family 43'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 43</strong><br />' + (feature.properties['Family 43'] !== null ? autolinker.link(feature.properties['Family 43'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 44']!== null && (feature.properties['Family 44'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 44</strong><br />' + (feature.properties['Family 44'] !== null ? autolinker.link(feature.properties['Family 44'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 45']!== null && (feature.properties['Family 45'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 45</strong><br />' + (feature.properties['Family 45'] !== null ? autolinker.link(feature.properties['Family 45'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 46']!== null && (feature.properties['Family 46'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 46</strong><br />' + (feature.properties['Family 46'] !== null ? autolinker.link(feature.properties['Family 46'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            if (feature.properties['Family 47']!== null && (feature.properties['Family 47'] !== ''))
+                {
+                    popupContent += '<tr>\
+                        <td colspan="2"><strong>Family 47</strong><br />' + (feature.properties['Family 47'] !== null ? autolinker.link(feature.properties['Family 47'].toLocaleString()) : '') + '</td>\
+                    </tr>'
+                }
+            popupContent += '</table>';;
+        layer.bindPopup(popupContent, {maxHeight: 400});
+        var popup = layer.getPopup();
+        var content = popup.getContent();
+        var updatedContent = removeEmptyRowsFromPopupContent(content);
+        popup.setContent(updatedContent);
+        }
+
+        function removeEmptyRowsFromPopupContent(content) {
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+
+            var rows = tempDiv.querySelectorAll('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var td = rows[i].querySelector('td');
+
+                if (td && td.innerHTML.trim() === '') {
+                    rows[i].parentNode.removeChild(rows[i]);
+                }
+            }
+
+        return tempDiv.innerHTML;
+        }
+
+        function style_DataFound_2_0(feature) {
+            if (feature.properties['q2wHide_Year Constructed (Int)'] >= 1851.000000 && feature.properties['q2wHide_Year Constructed (Int)'] <= 1940.000000 ) {
+                return {
+                pane: 'pane_DataFound_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(194,223,180,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['q2wHide_Year Constructed (Int)'] >= 1940.000000 && feature.properties['q2wHide_Year Constructed (Int)'] <= 2023.000000 ) {
+                return {
+                pane: 'pane_DataFound_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(113,214,202,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_DataFound_2');
+        map.getPane('pane_DataFound_2').style.zIndex = 402;
+        map.getPane('pane_DataFound_2').style['mix-blend-mode'] = 'normal';
+        var layer_DataFound_2 = new L.geoJson(json_DataFound_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DataFound_2',
+            layerName: 'layer_DataFound_2',
+            pane: 'pane_DataFound_2',
+            onEachFeature: pop_DataFound_2,
+            style: style_DataFound_2_0,
+        });
+        bounds_group.addLayer(layer_DataFound_2);
+        map.addLayer(layer_DataFound_2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Data Found<br /><table><tr><td style="text-align: center;"><img src="legend/DataFound_2_ConstructedBefore19400.png" /></td><td>Constructed Before 1940</td></tr><tr><td style="text-align: center;"><img src="legend/DataFound_2_ConstructedAfter19401.png" /></td><td>Constructed After 1940</td></tr></table>': layer_DataFound_2,'<img src="legend/NoDataFound_1.png" /> No Data Found': layer_NoDataFound_1,'<img src="legend/StuyvesantSquareStreets_0.png" /> Stuyvesant Square Streets': layer_StuyvesantSquareStreets_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_StuyvesantSquareStreets_0.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['st_label'] !== null?String('<div style="color: #323232; font-size: 8pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['st_label']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_StuyvesantSquareStreets_0'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_StuyvesantSquareStreets_0]);
+        map.on("zoomend", function(){
+            resetLabels([layer_StuyvesantSquareStreets_0]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_StuyvesantSquareStreets_0]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_StuyvesantSquareStreets_0]);
+        });
+        </script>
+    </body>
+</html>
