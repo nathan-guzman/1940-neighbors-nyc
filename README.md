@@ -46,4 +46,4 @@ Request Your Block Page:
 - Data for the interactive map is from the publicly available 1940 US Census, accessed via [Ancestry.com](https://www.ancestry.com/search/collections/2442/). 
 - Census Enumeration Districts for NYC Blocks identified using the [Unified 1940 Census ED Finder](https://stevemorse.org/census/unified.html?year=1940) on stevemorse.org.
 - Determination of neighborhood boundaries are made based on [locality.nyc](https://locality.nyc/)
-- This project has no affiliation with the ["nyc in 1940" song](https://open.spotify.com/track/6loDuwmsq6fazVxqqRhmcp) by berlioz and Ted Jasper embedded via Spotify on the home page. 
+- This project has no affiliation with the ["nyc in 1940"](https://open.spotify.com/track/6loDuwmsq6fazVxqqRhmcp) song by berlioz and Ted Jasper embedded via Spotify on the home page. 
