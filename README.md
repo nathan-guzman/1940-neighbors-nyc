@@ -10,7 +10,7 @@
 
 ## Usage
 
-"Find Your Block" page:
+Find Your Block page:
 - Browse posts with available blocks.
 - Each individual post is based on US Census Enumeration Districts, so posts may contain one or multiple city blocks.
 - Posts are organized by date posted, with the most recently posted blocks at the top of the page.
