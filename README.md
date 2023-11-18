@@ -43,6 +43,6 @@ Request Your Block Page:
 - GIS data manipulated and maps created using [QGIS](https://qgis.org/en/site/). Web maps generated using [QGIS2WEB](https://github.com/tomchadwin/qgis2web).
 - HTML Template: This website was created by modifying the [Massively HTML template](https://html5up.net/massively) designed by HTML5 UP.
 - The background image of the website is from the [WPA Federal Writers Project archive](https://nycma.lunaimaging.com/luna/servlet/RECORDSPHOTOUNITARC~25~25): "Henry Street (Manhattan) between Jefferson and Monroe Streets", NYC Municipal Archives Collection, Courtesy of the Municipal Archives, City of New York.
-- Data for the interactive map is from the 1940 US Census, accessed via [Ancestry.com](https://www.ancestry.com/search/collections/2442/). 
+- Data for the interactive map is from the publicly available 1940 US Census, accessed via [Ancestry.com](https://www.ancestry.com/search/collections/2442/). 
 - Census Enumeration Districts for NYC Blocks identified using the [Unified 1940 Census ED Finder](https://stevemorse.org/census/unified.html?year=1940) on stevemorse.org.
 - Determination of neighborhood boundaries are made based on [locality.nyc](https://locality.nyc/)
